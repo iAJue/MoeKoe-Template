@@ -1,0 +1,201 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用户登录 - 魔法少女の秘密商店</title>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kawaii', sans-serif;
+    background-color: #fce4ec;
+    color: #ff4081;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: #c2185b;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 10px 0;
+    padding: 12px;
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff4081;
+}
+
+button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #c2185b;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #ff4081;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.magic-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+}
+
+.magic-icon:nth-child(1) {
+    top: 20px;
+    left: 20px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.magic-icon:nth-child(2) {
+    top: 20px;
+    right: 20px;
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.magic-icon:nth-child(3) {
+    bottom: 20px;
+    left: 20px;
+    animation: float 4.5s ease-in-out infinite;
+}
+
+.magic-icon:nth-child(4) {
+    bottom: 20px;
+    right: 20px;
+    animation: float 3.8s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    animation: sparkle 2s infinite;
+}
+
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <svg class="magic-icon" viewBox="0 0 24 24" fill="#ff4081">
+            <path d="M7,3L3,7V5H1V9H5V7H3L7,3M9,5V1H11V5H9M13,5V1H15V5H13M17,5V1H19V5H17M21,5H19V3L21,1V5M3,11H1V13H3V11M21,11V13H23V11H21M3,15H1V17H3V15M21,15V17H23V15H21M3,19H1V21H3V19M21,19V21H23V19H21Z"/>
+        </svg>
+        <svg class="magic-icon" viewBox="0 0 24 24" fill="#ff4081">
+            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+        </svg>
+        <svg class="magic-icon" viewBox="0 0 24 24" fill="#ff4081">
+            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+        </svg>
+        <svg class="magic-icon" viewBox="0 0 24 24" fill="#ff4081">
+            <path d="M7,3L3,7V5H1V9H5V7H3L7,3M9,5V1H11V5H9M13,5V1H15V5H13M17,5V1H19V5H17M21,5H19V3L21,1V5M3,11H1V13H3V11M21,11V13H23V11H21M3,15H1V17H3V15M21,15V17H23V15H21M3,19H1V21H3V19M21,19V21H23V19H21Z"/>
+        </svg>
+        
+        <h1>魔法少女の秘密商店</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="魔法使用者名称" required>
+            <input type="password" id="password" placeholder="神秘咒语（密码）" required>
+            <button type="submit">进入魔法世界</button>
+        </form>
+        <p class="signup-link">还不是魔法少女？<a href="/signup">立即注册</a></p>
+    </div>
+
+    <script>
+    function createSparkles() {
+        const container = document.querySelector('.login-container');
+        for (let i = 0; i < 20; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = `${Math.random() * 100}%`;
+            sparkle.style.top = `${Math.random() * 100}%`;
+            sparkle.style.animationDelay = `${Math.random() * 2}s`;
+            container.appendChild(sparkle);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        createSparkles();
+
+        const form = document.getElementById('login-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // 这里应该是发送到服务器进行验证的代码
+            // 为了演示，我们只做一个简单的检查
+            if (username && password) {
+                alert(`欢迎回来，${username}！魔法世界正在等待你的探索~`);
+                // 在实际应用中，这里应该重定向到用户的dashboard或首页
+            } else {
+                alert('请输入有效的魔法使用者名称和神秘咒语！');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

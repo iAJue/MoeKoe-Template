@@ -1,0 +1,300 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>订单详情 - 魔法少女の秘密商店</title>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kawaii', sans-serif;
+    background-color: #fce4ec;
+    color: #ff4081;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f8bbd0;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #c2185b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: #880e4f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff4081;
+}
+
+.order-details {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.order-number, .order-date, .order-status, .order-total {
+    font-size: 1.1em;
+    color: #c2185b;
+    margin-bottom: 10px;
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.product-item {
+    display: flex;
+    border-bottom: 2px solid #fce4ec;
+    padding: 20px 0;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 1.2em;
+    color: #c2185b;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 0.9em;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+.product-price, .product-quantity {
+    font-size: 1em;
+    color: #880e4f;
+}
+
+.shipping-info, .recipient-info {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff0f5;
+    border-radius: 10px;
+}
+
+.tracking-number {
+    font-weight: bold;
+    color: #c2185b;
+}
+
+.status-pending {
+    color: #ffa000;
+}
+
+.status-shipped {
+    color: #4caf50;
+}
+
+.status-delivered {
+    color: #2196f3;
+}
+
+.status-cancelled {
+    color: #f44336;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8bbd0;
+    color: #880e4f;
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+.action-button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background-color: #c2185b;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>魔法少女の秘密商店</h1>
+        <nav>
+            <a href="/">首页</a>
+            <a href="/products">所有商品</a>
+            <a href="/categories">分类</a>
+            <a href="/cart">购物车</a>
+            <a href="/account">我的账户</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>订单详情</h1>
+        <div class="order-details" id="order-details">
+            <!-- 订单详情将通过 JavaScript 动态生成 -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 魔法少女の秘密商店 | 用爱与魔法点亮每一天</p>
+    </footer>
+
+    <script>
+    const order = {
+        id: "ORD001",
+        date: "2023-05-01",
+        status: "已发货",
+        total: 9999,
+        items: [
+            {
+                name: "星光魔法杖",
+                description: "闪耀星光，实现愿望的神奇魔法杖",
+                quantity: 1,
+                price: 9999,
+                image: "https://example.com/magic-wand.jpg"
+            }
+        ],
+        shipping: {
+            trackingNumber: "SF1234567890",
+            status: "运输中",
+            estimatedDelivery: "2023-05-10"
+        },
+        recipient: {
+            name: "小樱",
+            address: "魔法王国 星光大道 123号",
+            phone: "1234567890"
+        }
+    };
+
+    function createOrderDetails(order) {
+        const orderDetails = document.getElementById('order-details');
+        orderDetails.innerHTML = `
+            <div class="order-info">
+                <div>
+                    <div class="order-number">订单号: ${order.id}</div>
+                    <div class="order-date">下单日期: ${order.date}</div>
+                </div>
+                <div>
+                    <div class="order-status status-${order.status.toLowerCase().replace(/\s/g, '')}">状态: ${order.status}</div>
+                    <div class="order-total">总金额: ❤️ ${order.total}</div>
+                </div>
+            </div>
+            <h2>商品列表</h2>
+            <div class="product-list">
+                ${order.items.map(item => `
+                    <div class="product-item">
+                        <img src="${item.image}" alt="${item.name}" class="product-image">
+                        <div class="product-details">
+                            <div class="product-name">${item.name}</div>
+                            <div class="product-description">${item.description}</div>
+                            <div class="product-price">单价: ❤️ ${item.price}</div>
+                            <div class="product-quantity">数量: ${item.quantity}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="shipping-info">
+                <h3>物流信息</h3>
+                <p>快递单号: <span class="tracking-number">${order.shipping.trackingNumber}</span></p>
+                <p>配送状态: ${order.shipping.status}</p>
+                <p>预计送达: ${order.shipping.estimatedDelivery}</p>
+            </div>
+            <div class="recipient-info">
+                <h3>收货信息</h3>
+                <p>收货人: ${order.recipient.name}</p>
+                <p>地址: ${order.recipient.address}</p>
+                <p>电话: ${order.recipient.phone}</p>
+            </div>
+            <button class="action-button" id="contact-support">联系客服</button>
+        `;
+    }
+
+    function addSparkleEffect() {
+        const orderDetails = document.getElementById('order-details');
+        orderDetails.addEventListener('mouseover', createSparkle);
+    }
+
+    function createSparkle(e) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = `${e.clientX}px`;
+        sparkle.style.top = `${e.clientY}px`;
+        document.body.appendChild(sparkle);
+
+        sparkle.style.animation = 'sparkle 0.5s linear';
+        sparkle.addEventListener('animationend', () => {
+            sparkle.remove();
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        createOrderDetails(order);
+        addSparkleEffect();
+
+        document.getElementById('contact-support').addEventListener('click', function() {
+            alert('正在连接魔法少女客服中心，请稍候...');
+        });
+    });
+    </script>
+</body>
+</html>

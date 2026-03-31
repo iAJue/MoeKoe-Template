@@ -1,0 +1,312 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星光魔法杖 - 商品详情 | 魔法少女の秘密商店</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec;
+    color: #ff4081;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f8bbd0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+h1, h2, h3 {
+    color: #c2185b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #880e4f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff4081;
+}
+
+.product-details {
+    display: flex;
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-info {
+    flex: 1;
+    padding: 40px;
+}
+
+.product-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+.add-to-cart {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #f50057;
+}
+
+.reviews {
+    margin-top: 60px;
+}
+
+.review-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.review-form button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-form button:hover {
+    background-color: #f50057;
+}
+
+.review-list {
+    display: grid;
+    gap: 20px;
+}
+
+.review-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.review-content {
+    color: #333;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8bbd0;
+    color: #880e4f;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 20px;
+    }
+
+    nav a {
+        margin: 5px 10px;
+    }
+
+    .product-details {
+        flex-direction: column;
+    }
+
+    .product-image, .product-info {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>魔法少女の秘密商店</h1>
+            <nav>
+                <a href="/">首页</a>
+                <a href="/products">所有商品</a>
+                <a href="/categories">分类</a>
+                <a href="/cart">购物车</a>
+                <a href="/account">我的账户</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="product-details">
+            <div class="product-image">
+                <img src="https://example.com/star-wand-large.jpg" alt="星光魔法杖，金色星星顶端的华丽魔杖，特写" width="600" height="600">
+            </div>
+            <div class="product-info">
+                <h2 class="product-title">星光魔法杖</h2>
+                <p class="product-description">这款星光魔法杖是每位魔法少女的必备道具。由纯净的星光精华打造，可以释放出强大而美丽的魔法能量。无论是战斗还是表演，它都能让你成为最闪耀的存在！</p>
+                <p class="product-price">9999 魔法币</p>
+                <button class="add-to-cart">加入购物车</button>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h3>商品评价</h3>
+            <div class="review-form">
+                <textarea id="review-content" placeholder="写下你的评价..."></textarea>
+                <button id="submit-review">提交评价</button>
+            </div>
+            <div class="review-list" id="review-list">
+                <!-- 评论将通过 JavaScript 动态添加 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 魔法少女の秘密商店 | 用爱与魔法点亮每一天</p>
+    </footer>
+
+    <script>
+    // 模拟评论数据
+    const reviews = [
+        { author: "小樱", date: "2023-05-15", content: "这根魔法杖真的超棒！我用它变身的时候，感觉整个人都在发光呢！" },
+        { author: "小兔", date: "2023-05-14", content: "星光魔法杖的品质非常好，手感很棒，而且魔力输出很稳定。推荐给所有的魔法少女们！" },
+        { author: "小美", date: "2023-05-13", content: "我用这个魔法杖打败了好多坏蛋！真的是超级好用，而且看起来特别漂亮！" }
+    ];
+
+    // 显示评论
+    function displayReviews() {
+        const reviewList = document.getElementById('review-list');
+        reviewList.innerHTML = '';
+        reviews.forEach(review => {
+            const reviewItem = document.createElement('div');
+            reviewItem.className = 'review-item';
+            reviewItem.innerHTML = `
+                <p class="review-author">${review.author}</p>
+                <p class="review-date">${review.date}</p>
+                <p class="review-content">${review.content}</p>
+            `;
+            reviewList.appendChild(reviewItem);
+        });
+    }
+
+    // 添加新评论
+    function addReview(content) {
+        const newReview = {
+            author: "匿名魔法少女",
+            date: new Date().toISOString().split('T')[0],
+            content: content
+        };
+        reviews.unshift(newReview);
+        displayReviews();
+    }
+
+    // 初始显示评论
+    displayReviews();
+
+    // 提交评论事件监听
+    document.getElementById('submit-review').addEventListener('click', function() {
+        const content = document.getElementById('review-content').value;
+        if (content.trim() !== '') {
+            addReview(content);
+            document.getElementById('review-content').value = '';
+        }
+    });
+
+    // 加入购物车按钮事件
+    document.querySelector('.add-to-cart').addEventListener('click', function() {
+        alert('星光魔法杖已成功加入购物车！');
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<html><head><base href="/cart/account/products">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商品列表 - 魔法少女の秘密商店</title>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kawaii', sans-serif;
+    background-color: #fce4ec;
+    color: #ff4081;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f8bbd0;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #c2185b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: #880e4f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff4081;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 1.2em;
+    color: #c2185b;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 0.9em;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #880e4f;
+    font-weight: bold;
+}
+
+.add-to-cart {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.add-to-cart:hover {
+    background-color: #c2185b;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8bbd0;
+    color: #880e4f;
+}
+
+.ribbon {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    transform: rotate(45deg);
+    background-color: #ff4081;
+    color: white;
+    padding: 5px 30px;
+    font-size: 0.8em;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    background-color: #f8bbd0;
+    color: #880e4f;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover, .filter-button.active {
+    background-color: #ff4081;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>魔法少女の秘密商店</h1>
+        <nav>
+            <a href="/">首页</a>
+            <a href="/products">所有商品</a>
+            <a href="/categories">分类</a>
+            <a href="/cart">购物车</a>
+            <a href="/account">我的账户</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>商品列表</h1>
+        <div class="filters">
+            <button class="filter-button active" data-category="all">全部</button>
+            <button class="filter-button" data-category="魔法道具">魔法道具</button>
+            <button class="filter-button" data-category="变身服装">变身服装</button>
+            <button class="filter-button" data-category="魔法书籍">魔法书籍</button>
+            <button class="filter-button" data-category="魔法食品">魔法食品</button>
+        </div>
+        <div class="product-grid" id="product-grid">
+            <!-- 产品卡片将通过 JavaScript 动态生成 -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 魔法少女の秘密商店 | 用爱与魔法点亮每一天</p>
+    </footer>
+
+    <script>
+    const products = [
+        {
+            name: "星光魔法杖",
+            description: "能召唤星光的强力魔法杖",
+            price: 9999,
+            image: "https://example.com/star-wand.jpg",
+            category: "魔法道具",
+            featured: true
+        },
+        {
+            name: "彩虹变身裙",
+            description: "华丽的彩虹色变身服装",
+            price: 7777,
+            image: "https://example.com/rainbow-dress.jpg",
+            category: "变身服装"
+        },
+        {
+            name: "古老魔法书",
+            description: "记载着失传魔法的古老书籍",
+            price: 8888,
+            image: "https://example.com/magic-book.jpg",
+            category: "魔法书籍"
+        },
+        {
+            name: "魔力蛋糕",
+            description: "美味又能恢复魔力的蛋糕",
+            price: 555,
+            image: "https://example.com/magic-cake.jpg",
+            category: "魔法食品"
+        },
+        {
+            name: "月光宝石",
+            description: "能增强月光魔法的宝石",
+            price: 6666,
+            image: "https://example.com/moonstone.jpg",
+            category: "魔法道具"
+        },
+        {
+            name: "花仙子指南",
+            description: "学习花仙子魔法的入门书籍",
+            price: 3333,
+            image: "https://example.com/fairy-guide.jpg",
+            category: "魔法书籍"
+        },
+        {
+            name: "星云魔法棒",
+            description: "蕴含星云力量的魔法棒",
+            price: 8888,
+            image: "https://example.com/nebula-wand.jpg",
+            category: "魔法道具"
+        },
+        {
+            name: "彩蝶之翼",
+            description: "能让你飞翔的魔法翅膀",
+            price: 7777,
+            image: "https://example.com/butterfly-wings.jpg",
+            category: "变身服装"
+        }
+    ];
+
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <h2 class="product-name">${product.name}</h2>
+            <p class="product-description">${product.description}</p>
+            <p class="product-price">❤️ ${product.price}</p>
+            <button class="add-to-cart">加入购物车</button>
+            ${product.featured ? '<div class="ribbon">限定商品</div>' : ''}
+        `;
+        return card;
+    }
+
+    function displayProducts(category = 'all') {
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = '';
+        products.forEach(product => {
+            if (category === 'all' || product.category === category) {
+                const card = createProductCard(product);
+                grid.appendChild(card);
+            }
+        });
+        addSparkleEffect();
+    }
+
+    function addSparkleEffect() {
+        const cards = document.querySelectorAll('.product-card');
+        cards.forEach(card => {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.animationDelay = `${Math.random() * 2}s`;
+                sparkle.style.animation = `sparkle ${1 + Math.random() * 2}s infinite`;
+                card.appendChild(sparkle);
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        displayProducts();
+
+        const filterButtons = document.querySelectorAll('.filter-button');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.dataset.category;
+                displayProducts(category);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

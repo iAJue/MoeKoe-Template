@@ -1,0 +1,349 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>魔法少女の秘密商店 - 首页</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec;
+    color: #ff4081;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f8bbd0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+h1, h2 {
+    color: #c2185b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #880e4f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff4081;
+}
+
+.hero {
+    background: url('https://example.com/magical-girl-background.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #ff4081;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f50057;
+}
+
+.featured-products {
+    margin-top: 50px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 1.2em;
+    color: #c2185b;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #ff4081;
+}
+
+.magical-features {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-card {
+    background-color: #f8bbd0;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8bbd0;
+    color: #880e4f;
+}
+
+.magic-sparkle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 20px;
+    }
+
+    nav a {
+        margin: 5px 10px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>魔法少女の秘密商店</h1>
+            <nav>
+                <a href="/">首页</a>
+                <a href="/products">所有商品</a>
+                <a href="/categories">分类</a>
+                <a href="/cart">购物车</a>
+                <a href="/account">我的账户</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>欢迎来到魔法少女的奇妙世界</h2>
+                <p>在这里，你可以找到最闪耀的魔法道具和最可爱的变身服装！</p>
+                <a href="/products" class="cta-button">开始购物</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="featured-products">
+                <h2>精选商品</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://example.com/star-wand.jpg" alt="星光魔法杖，金色星星顶端的华丽魔杖" class="product-image" width="250" height="200">
+                        <div class="product-info">
+                            <h3 class="product-title">星光魔法杖</h3>
+                            <p class="product-price">9999 魔法币</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://example.com/rainbow-dress.jpg" alt="彩虹变身裙，七彩渐变的华丽连衣裙" class="product-image" width="250" height="200">
+                        <div class="product-info">
+                            <h3 class="product-title">彩虹变身裙</h3>
+                            <p class="product-price">8888 魔法币</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://example.com/crystal-shoes.jpg" alt="水晶高跟鞋，透明闪耀的魔法鞋子" class="product-image" width="250" height="200">
+                        <div class="product-info">
+                            <h3 class="product-title">水晶高跟鞋</h3>
+                            <p class="product-price">7777 魔法币</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://example.com/magic-book.jpg" alt="古老魔法书，烫金封面的厚重魔法书籍" class="product-image" width="250" height="200">
+                        <div class="product-info">
+                            <h3 class="product-title">古老魔法书</h3>
+                            <p class="product-price">12345 魔法币</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="magical-features">
+                <h2>我们的魔法特色</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>闪耀魔法</h3>
+                        <p>每件商品都经过特殊的魔法加持，让你闪耀全场！</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌈</div>
+                        <h3>彩虹快递</h3>
+                        <p>使用彩虹魔法，让你的商品瞬间送达！</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔮</div>
+                        <h3>魔法保证</h3>
+                        <p>所有商品都有魔法品质保证，让你安心购买！</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 魔法少女の秘密商店 | 用爱与魔法点亮每一天</p>
+    </footer>
+
+    <script>
+    function createSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'magic-sparkle';
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+        sparkle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        sparkle.style.width = '5px';
+        sparkle.style.height = '5px';
+        sparkle.style.borderRadius = '50%';
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 2000);
+    }
+
+    setInterval(createSparkle, 200);
+
+    document.addEventListener('mousemove', (e) => {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'magic-sparkle';
+        sparkle.style.left = e.clientX + 'px';
+        sparkle.style.top = e.clientY + 'px';
+        sparkle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        sparkle.style.width = '3px';
+        sparkle.style.height = '3px';
+        sparkle.style.borderRadius = '50%';
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 1000);
+    });
+    </script>
+</body>
+</html>
